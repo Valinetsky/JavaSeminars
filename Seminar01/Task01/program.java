@@ -11,15 +11,16 @@ import java.util.Scanner;
 public class program {
 	public static void main(String[] args) {
 		
-	public static int inputNumber(String message){ //идентификатор доступа, функция является статичной, тип возвращаемого значения, имя функции без параметров
-		System.out.println(message);
-		Scanner reader=new Scanner(System.in); // Reading from System.in
-		int number=reader.nextInt(); // Scans the next token of the input as an int.
-		reader.close();
-		return number; //возвращаем значение при вызове данной функции
-	}
+	// public static int inputNumber(String message){ //идентификатор доступа, функция является статичной, тип возвращаемого значения, имя функции без параметров
+	// 	System.out.println(message);
+	// 	Scanner reader=new Scanner(System.in); // Reading from System.in
+	// 	int number=reader.nextInt(); // Scans the next token of the input as an int.
+	// 	reader.close();
+	// 	return number; //возвращаем значение при вызове данной функции
+	// }
 
-	inputNumber("Введите число: ");
+	// inputNumber("Введите число: ");
+	// }
+	System.out.println("Hello world");
 	}
-
 }
