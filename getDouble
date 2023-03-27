@@ -1,0 +1,10 @@
+static Double getFloat(String prompt) {
+		System.out.print(prompt);
+		while (true) {
+			try {
+				return Double.parseDouble(new Scanner(System.in).next());
+			} catch (NumberFormatException ne) {
+				System.out.print("Не удалось распознать число.\n" + prompt);
+			}
+		}
+	}

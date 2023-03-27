@@ -1,0 +1,10 @@
+static int getFloat(String prompt) {
+		System.out.print(prompt);
+		while (true) {
+			try {
+				return Integer.parseFloat(new Scanner(System.in).next());
+			} catch (NumberFormatException ne) {
+				System.out.print("Не удалось распознать число.\n" + prompt);
+			}
+		}
+	}

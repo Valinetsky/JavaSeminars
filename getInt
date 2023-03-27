@@ -1,0 +1,10 @@
+static int getInt(String prompt) {
+		System.out.print(prompt);
+		while (true) {
+			try {
+				return Integer.parseInt(new Scanner(System.in).next());
+			} catch (NumberFormatException ne) {
+				System.out.print("Не удалось распознать число.\n" + prompt);
+			}
+		}
+	}
