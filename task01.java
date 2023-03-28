@@ -15,19 +15,26 @@ public class task01 {
 
 	static int getInt(String prompt) {
 		System.out.print(prompt);
-		while (true) {
-			Scanner scan = new Scanner(System.in);
+		boolean flag = true;
+		Scanner scan = new Scanner(System.in);
+		int i = -1;
+		while (flag) {
+			
 			if (scan.hasNextInt()) {
-				int i = scan.nextInt();
-				scan.close();
-				return i;
+				i = scan.nextInt();
+				System.out.println("Ура.");
+				System.out.println(i);
+				flag = false;
+				
 			} else {
 				// Ввод неверной информации
 				System.out.println("Не удалось распознать число.");
 			}
-			scan.close();
+			
 
 		}
+		scan.close();
+		return i;
 	}
 
 	public static void main(String[] args) {

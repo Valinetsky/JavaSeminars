@@ -28,8 +28,26 @@ public class HomeWorkTask01 {
 		}
 	}
 
-	int[] cubeArray = new int[1000];
-	
-	for
 
+	public static void main(String[] args){
+
+		int[] cubeArray = new int[1000];
+	
+		for (int i = 0; i < cubeArray.length; i++) {
+			cubeArray[i] = (i + 1) * (i + 1) * (i + 1);
+			System.out.println(cubeArray[i]);
+		}
+
+		int number_first = getInt("Input first number: ");
+		int number_second = getInt("Input second number: ");
+
+		System.out.println("Array element on index[first number]: ");
+		System.out.println(cubeArray[number_first - 1]);
+		System.out.println("Array element on index[second number]: ");
+		System.out.println(cubeArray[number_second - 1]);
+		
+	}
 }
+	
+
+
