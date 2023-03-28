@@ -12,7 +12,9 @@ public class task02 {
 		System.out.print(prompt);
 		while (true) {
 			try {
-				return Integer.parseInt(new Scanner(System.in).next());
+				int intNumber = Integer.parseInt(new Scanner(System.in).next());
+				Scanner
+				return 
 			} catch (NumberFormatException ne) {
 				System.out.print("Не удалось распознать число.\n" + prompt);
 			}
@@ -24,7 +26,7 @@ public class task02 {
 		int numberX = getInt("Введите ширину шоколадки: ");
 		int numberY = getInt("Введите длину шоколадки: ");
 		int chokoPart = getInt("Введите число долек на отлом: ");
-		
+
 		if (chokoPart < numberX * numberY && ((chokoPart % numberX == 0) || (chokoPart % numberY == 0))) {
 			System.out.println("Можно отломить");
 		} else {

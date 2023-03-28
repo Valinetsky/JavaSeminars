@@ -16,11 +16,17 @@ public class task01 {
 	static int getInt(String prompt) {
 		System.out.print(prompt);
 		while (true) {
-			try {
-				return Integer.parseInt(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+			Scanner scan = new Scanner(System.in);
+			if (scan.hasNextInt()) {
+				int i = scan.nextInt();
+				scan.close();
+				return i;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
 			}
+			scan.close();
+
 		}
 	}
 
