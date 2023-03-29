@@ -13,27 +13,22 @@ import java.util.Scanner;
 
 public class task01 {
 
+	private static Scanner scan = new Scanner(System.in);
+
 	static int getInt(String prompt) {
-		System.out.print(prompt);
 		boolean flag = true;
-		Scanner scan = new Scanner(System.in);
 		int i = -1;
 		while (flag) {
-			
+			System.out.print(prompt);
 			if (scan.hasNextInt()) {
 				i = scan.nextInt();
-				System.out.println("Ура.");
-				System.out.println(i);
 				flag = false;
-				
 			} else {
 				// Ввод неверной информации
 				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
-			
-
 		}
-		scan.close();
 		return i;
 	}
 
@@ -56,5 +51,7 @@ public class task01 {
 		}
 
 		System.out.format("За %d дней улитка доберется до вершины шеста", counter);
+
+		scan.close();
 	}
 }

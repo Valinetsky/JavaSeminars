@@ -11,34 +11,40 @@ import java.util.Scanner;
 
 public class task03 {
 
-	static Double getFloat(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				return Double.parseDouble(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+	private static Scanner scan = new Scanner(System.in);
+
+	static double getDouble(String prompt) {
+		boolean flag = true;
+		double i = -1;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextDouble()) {
+				i = scan.nextDouble();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
 		}
+		return i;
 	}
 
 	public static void main(String[] args) {
 
-		double numberX = getFloat("Введите расстояние первого дня: ");
-		double numberY = getFloat("Введите расчетное расстояние: ");
-		System.out.println(numberX);
-		System.out.println(numberY);
-		double percent = 1.1;
-		System.out.println(percent);
-		double numberZ = getFloat("Стоп: ");
-		int counter = 1;
+		double numberX = getDouble("Введите расстояние первого дня: ");
+		double numberY = getDouble("Введите расчетное расстояние: ");
 
+		double percent = 1.1;
+
+		int counter = 1;
 		while (numberX < numberY) {
 			numberX = numberX * percent;
 			System.out.println(numberX);
 			counter++;
 		}
-		System.out.println(counter);
+		System.out.printf("Время до увеличения пробега до расчетного расстояния, дней: %d", counter);
 
+		scan.close();
 	}
 }

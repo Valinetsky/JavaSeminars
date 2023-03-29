@@ -1,3 +1,5 @@
+// стрёмная, непонятная функция с незакрытым сканером
+
 static int getFloat(String prompt) {
 		System.out.print(prompt);
 		while (true) {

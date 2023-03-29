@@ -8,15 +8,23 @@ import java.util.Scanner;
 
 public class task06 {
 
+	private static Scanner scan = new Scanner(System.in);
+
 	static int getInt(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				return Integer.parseInt(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+		boolean flag = true;
+		int i = -1;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextInt()) {
+				i = scan.nextInt();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
 		}
+		return i;
 	}
 
 	public static void main(String[] args) {
@@ -33,10 +41,13 @@ public class task06 {
 		for (int i = 0; i < myArray.length; i = i + 2) {
 			summ = summ + myArray[i];
 		}
-		System.out.println(summ);
+		System.out.println("Ноль - четное число!");
+		System.out.printf("Сумма элементов = %d\n", summ);
+		System.out.println("Вывод суммируемых элементов массива:");
 		for (int i = 0; i < myArray.length; i = i + 2) {
-			System.out.println(myArray[i]);
+			System.out.printf("Элемент по индексу %d: %d\n", i, myArray[i]);
 		}
-
+		// в конце программы добавить
+		scan.close();
 	}
 }

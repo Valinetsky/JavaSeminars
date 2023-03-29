@@ -22,36 +22,41 @@ import java.util.Scanner;
 
 public class HomeWorkTask02 {
 
+	private static Scanner scan = new Scanner(System.in);
+
 	static int getInt(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				return Integer.parseInt(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+		boolean flag = true;
+		int i = -1;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextInt()) {
+				i = scan.nextInt();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
 		}
+		return i;
 	}
 
+	public static void main(String[] args) {
 
-	public static void main(String[] args){
-
-        int arraySize = getInt("Input array size: ");
+		int arraySize = getInt("Input array size: ");
 
 		int[] array = new int[arraySize];
-	
+
 		for (int i = 0; i < array.length; i++) {
-			array[i] = getInt("Input array element: ");
+			System.out.printf("Waiting for array element %d\n", i);
+			array[i] = getInt("Input number: ");
 			System.out.println(array[i]);
 		}
 
-		int number = getInt("Input number: ");
+		int number = getInt("Input multiplier: ");
 
-        for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++) {
 			System.out.println(array[i] * number);
 		}
 	}
 }
-	
-
-

@@ -8,17 +8,23 @@ import java.util.Scanner;
 
 public class task02 {
 
+	private static Scanner scan = new Scanner(System.in);
+
 	static int getInt(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				int intNumber = Integer.parseInt(new Scanner(System.in).next());
-				Scanner
-				return 
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+		boolean flag = true;
+		int i = -1;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextInt()) {
+				i = scan.nextInt();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
 		}
+		return i;
 	}
 
 	public static void main(String[] args) {
@@ -32,5 +38,6 @@ public class task02 {
 		} else {
 			System.out.println("Не получится отломить");
 		}
+		scan.close();
 	}
 }

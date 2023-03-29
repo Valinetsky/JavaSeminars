@@ -22,27 +22,12 @@ Sample Output:
 1
 */
 
-import java.util.*;
-
 public class task07 {
 
-	static int getInt(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				return Integer.parseInt(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
-			}
-		}
-	}
-
 	// Общий метод для проверки дубликатов в массиве
-	static void checkForDuplicates(int[] array)
-	{
+	static void checkForDuplicates(int[] array) {
 		// для каждого элемента массива проверяем, встречается ли он потом в массиве
-		for (int i = 0; i < array.length; i++)
-		{
+		for (int i = 0; i < array.length; i++) {
 			int j = 0;
 			boolean flag = true;
 			boolean count_double = false;
@@ -61,10 +46,11 @@ public class task07 {
 				System.out.println(array[i]);
 			}
 		}
- 	}
+	}
 
 	public static void main(String[] args) {
-		int[] myArray = new int[] {8, 1, 2, 2, 3, 3, 3, 5, 7, 12, 12, 13, 4, 4};
+		int[] myArray = new int[] { 8, 1, 2, 2, 3, 3, 3, 5, 7, 12, 12, 13, 4, 4 };
 		checkForDuplicates(myArray);
+
 	}
 }

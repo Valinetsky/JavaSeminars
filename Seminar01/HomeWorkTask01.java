@@ -17,37 +17,41 @@ import java.util.Scanner;
 
 public class HomeWorkTask01 {
 
+	private static Scanner scan = new Scanner(System.in);
+
 	static int getInt(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				return Integer.parseInt(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+		boolean flag = true;
+		int i = -1;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextInt()) {
+				i = scan.nextInt();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
 		}
+		return i;
 	}
 
-
-	public static void main(String[] args){
+	public static void main(String[] args) {
 
 		int[] cubeArray = new int[1000];
-	
+
 		for (int i = 0; i < cubeArray.length; i++) {
 			cubeArray[i] = (i + 1) * (i + 1) * (i + 1);
-			System.out.println(cubeArray[i]);
+			// System.out.println(cubeArray[i]);
 		}
 
 		int number_first = getInt("Input first number: ");
 		int number_second = getInt("Input second number: ");
 
-		System.out.println("Array element on index[first number]: ");
+		System.out.printf("Array element on index[%d]: ", number_first);
 		System.out.println(cubeArray[number_first - 1]);
-		System.out.println("Array element on index[second number]: ");
+		System.out.printf("Array element on index[%d]: ", number_second);
 		System.out.println(cubeArray[number_second - 1]);
-		
+
 	}
 }
-	
-
-

@@ -1,10 +1,23 @@
-static Double getFloat(String prompt) {
-		System.out.print(prompt);
-		while (true) {
-			try {
-				return Double.parseDouble(new Scanner(System.in).next());
-			} catch (NumberFormatException ne) {
-				System.out.print("Не удалось распознать число.\n" + prompt);
+	private static Scanner scan = new Scanner(System.in);
+
+	static double getDouble(String prompt) {
+		boolean flag = true;
+		double i = -1;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextDouble()) {
+				i = scan.nextDouble();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
 			}
 		}
+		return i;
 	}
+	
+
+	
+// в конце программы добавить
+scan.close();
