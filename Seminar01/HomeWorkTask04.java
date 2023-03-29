@@ -1,72 +1,95 @@
 /*
-Task_3.
-Реализовать простой калькулятор (+,-,=,*), только с целыми числами.
+Task_4. *
++Задано уравнение вида q + w = e, q, w, e >= 0. Некоторые цифры могут быть заменены знаком вопроса, например, 2? + ?5 = 69. 
+Требуется восстановить выражение до верного равенства. Предложить хотя бы одно решение или сообщить, что его нет.
 */
 
-import java.util.Scanner;
+import java.util.*;
 
-public class HomeWorkTask03 {
+public class HomeWorkTask04 {
 
 	private static Scanner scan = new Scanner(System.in);
 
-	static int getInt(String prompt) {
-		boolean flag = true;
-		int i = -1;
-		while (flag) {
-			System.out.print(prompt);
-			if (scan.hasNextInt()) {
-				i = scan.nextInt();
-				flag = false;
-			} else {
-				// Ввод неверной информации
-				System.out.println("Не удалось распознать число.");
-				scan.nextLine();
-			}
-		}
-		return i;
+	public static int pow(int value, int powValue) {
+		return (int) Math.pow(value, powValue);
 	}
 
-	public static void main(String[] args) throws java.io.IOException {
-
-		int number_first = getInt("Input first number: ");
-		int number_second = getInt("Input second number: ");
-
-		char c = '0';
-		boolean flag = true;
-		while (flag) {
-			System.out.println("Input operation: ");
-			c = (char) System.in.read();
-
-			// scan.nextLine();
-			// При вводе неверного символа двоит строка "Input operation: "
-			// Впрочем, при верном вводе, даже и после ошибочного - программа работает
-			// правильно
-			if (c == '+' || c == '-' || c == '*' || c == '/') {
-				flag = false;
-			}
+	public String padLeftZeros(String inputString, int length) {
+		if (inputString.length() >= length) {
+			return inputString;
 		}
-
-		if (c == '+') {
-			System.out.printf("%d + %d = %d\n", number_first, number_second, number_first + number_second);
+		StringBuilder sb = new StringBuilder();
+		while (sb.length() < length - inputString.length()) {
+			sb.append('0');
 		}
+		sb.append(inputString);
 
-		if (c == '-') {
-			System.out.println(number_first - number_second);
-		}
+		return sb.toString();
+	}
 
-		if (c == '*') {
-			System.out.println(number_first * number_second);
-		}
+	public static ArrayList<Integer> numberToArr(String inputString) {
 
-		if (c == '/') {
-			if (number_second != 0) {
-				System.out.println(number_first / number_second);
-			}
-			if (number_second == 0) {
-				System.out.println("Division by zero error");
+		String q_str_find = inputString.replace("?", "\\d");
+
+		ArrayList<Integer> AI = new ArrayList();
+		// ArrayList<String> list = new ArrayList<String>();
+
+		for (int i = 0; i < pow(10, inputString.length()); i++) {
+			// System.out.println(i);
+			String number_string = Integer.toString(i);
+			// System.out.println(number_string);
+
+			if (number_string.matches(q_str_find)) {
+				// System.out.println(number_string);
+				AI.add(Integer.parseInt(number_string));
 			}
 
 		}
+		// System.out.println(AI);
+		return AI;
+	}
+
+	public static void main(String[] args) {
+
+		System.out.print("Введите уравнение: ");
+
+		// String equation = scan.nextLine();
+		String equation = "2? + ?5 = 69";
+
+		String[] parts = equation.split("\s*[+=]\s*");
+
+		// System.out.println(parts[0]);
+		// System.out.println(parts[1]);
+		// System.out.println(parts[2]);
+
+		ArrayList<Integer> q_list = new ArrayList<Integer>();
+		q_list = numberToArr(parts[0]);
+		System.out.println(q_list);
+
+		ArrayList<Integer> w_list = new ArrayList<Integer>();
+		w_list = numberToArr(parts[1]);
+		System.out.println(w_list);
+
+		ArrayList<Integer> e_list = new ArrayList<Integer>();
+		e_list = numberToArr(parts[2]);
+		System.out.println(e_list);
+
+		int outputCounter = 0;
+		for (int i = 0; i < q_list.size(); i++) {
+			for (int j = 0; j < w_list.size(); j++) {
+				for (int k = 0; k < e_list.size(); k++) {
+					if (q_list.get(i) + w_list.get(j) == e_list.get(k)) {
+						System.out.printf("%d + %d = %d\n", q_list.get(i), w_list.get(j), e_list.get(k));
+						outputCounter++;
+					}
+				}
+			}
+		}
+		if (outputCounter == 0) {
+			System.out.println("Нет решения");
+
+		}
+
 		scan.close();
 	}
 }

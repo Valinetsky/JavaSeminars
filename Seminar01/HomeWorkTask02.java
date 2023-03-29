@@ -50,7 +50,6 @@ public class HomeWorkTask02 {
 		for (int i = 0; i < array.length; i++) {
 			System.out.printf("Waiting for array element %d\n", i);
 			array[i] = getInt("Input number: ");
-			System.out.println(array[i]);
 		}
 
 		int number = getInt("Input multiplier: ");
