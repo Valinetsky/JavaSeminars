@@ -51,15 +51,15 @@ public class HomeWorkTask04 {
 
 		ArrayList<Integer> q_list = new ArrayList<Integer>();
 		q_list = numberToArr(parts[0]);
-		System.out.println(q_list);
+		// System.out.println(q_list);
 
 		ArrayList<Integer> w_list = new ArrayList<Integer>();
 		w_list = numberToArr(parts[1]);
-		System.out.println(w_list);
+		// System.out.println(w_list);
 
 		ArrayList<Integer> e_list = new ArrayList<Integer>();
 		e_list = numberToArr(parts[2]);
-		System.out.println(e_list);
+		// System.out.println(e_list);
 
 		boolean noSolution = true;
 		for (int i = 0; i < q_list.size(); i++) {
