@@ -47,7 +47,7 @@ public class HomeWorkTask04 {
 		// String equation = scan.nextLine();
 		String equation = "2? + ?5 = 69";
 
-		String[] parts = equation.split("\s*[+=]\s*");
+		String[] parts = equation.split("\\s*[+=]\\s*");
 
 		ArrayList<Integer> q_list = new ArrayList<Integer>();
 		q_list = numberToArr(parts[0]);
