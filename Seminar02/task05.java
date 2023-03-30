@@ -15,30 +15,29 @@
 package Seminar02;
 
 public class task05 {
-    public static void main(String[] args) {
-        String str = "34Hi56";
-        str = str.toLowerCase();
-        int countDigit = 0;
-        int countLetter = 0;
-        for (int i = 0; i < str.length(); i++)
-        {
-            if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z') {
-                countLetter++;
-                System.out.println(countLetter);
-            }
-            if (str.charAt(i) >= '0' && str.charAt(i) <= '9') {
-                countDigit++;
-                System.out.println(countDigit);
-            }
-        }
-        if (countLetter > countDigit) {
-            System.out.println("Letter");
-        }
-        if (countLetter < countDigit) {
-            System.out.println("Digit");
-        }
-        if (countLetter == countDigit) {
-            System.out.println("Equal");
-        }
-    }
+	public static void main(String[] args) {
+		String str = "34Hi56";
+		str = str.toLowerCase();
+		int countDigit = 0;
+		int countLetter = 0;
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z') {
+				countLetter++;
+				System.out.printf("Letter: %d\n", countLetter);
+			}
+			if (str.charAt(i) >= '0' && str.charAt(i) <= '9') {
+				countDigit++;
+				System.out.printf("Digit: %d\n", countDigit);
+			}
+		}
+		if (countLetter > countDigit) {
+			System.out.println("Letter");
+		}
+		if (countLetter < countDigit) {
+			System.out.println("Digit");
+		}
+		if (countLetter == countDigit) {
+			System.out.println("Equal");
+		}
+	}
 }
