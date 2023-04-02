@@ -9,19 +9,49 @@
 // //
 // //После написания, попробуйте подать на вход числа 100 и 200 и проследите
 // разницу в результате
-// public static void main(String[] args) {
 
-// }
-
-// public String findJewelsInStones(String jewels, String stones){
-
-// return "";
-// }
-
-// }
  */
 package Seminar02;
 
+import java.io.FileOutputStream;
+import java.io.File;
+// import java.io.FileOutputStream;
+import java.util.Scanner;
+
 public class task06 {
-    
+
+	private static Scanner scan = new Scanner(System.in);
+
+	static int getByte(String prompt) {
+		boolean flag = true;
+		byte i = 0;
+		while (flag) {
+			System.out.print(prompt);
+			if (scan.hasNextByte()) {
+				i = scan.nextByte();
+				flag = false;
+			} else {
+				// Ввод неверной информации
+				System.out.println("Не удалось распознать число.");
+				scan.nextLine();
+			}
+		}
+		return i;
+	}
+
+	public static void main(String[] args) {
+		// for (byte i = 1; i <= 200; i++) {
+		// System.out.println(i);
+		// }
+
+		File file = new File("C:\\Users\\Roman\\Desktop\\GB\\JAVA\\Seminar02\text.txt");
+		FileOutputStream fileOutputStream = new FileOutputStream(file);
+
+		String greetings = "Привет! Добро пожаловать на JavaRush - лучший сайт для тех, кто хочет стать программистом!";
+
+		fileOutputStream.write(greetings.getBytes());
+
+		fileOutputStream.close();
+	}
+
 }
