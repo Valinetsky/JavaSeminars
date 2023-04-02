@@ -14,6 +14,7 @@
 package Seminar02;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.File;
 // import java.io.FileOutputStream;
 import java.util.Scanner;
@@ -22,7 +23,7 @@ public class task06 {
 
 	private static Scanner scan = new Scanner(System.in);
 
-	static int getByte(String prompt) {
+	static byte getByte(String prompt) {
 		boolean flag = true;
 		byte i = 0;
 		while (flag) {
@@ -39,17 +40,19 @@ public class task06 {
 		return i;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// for (byte i = 1; i <= 200; i++) {
 		// System.out.println(i);
 		// }
 
-		File file = new File("C:\\Users\\Roman\\Desktop\\GB\\JAVA\\Seminar02\text.txt");
+		File file = new File("C:\\Users\\Roman\\Desktop\\GB\\JAVA\\Seminar02\\text.txt");
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
 
 		String greetings = "Привет! Добро пожаловать на JavaRush - лучший сайт для тех, кто хочет стать программистом!";
 
-		fileOutputStream.write(greetings.getBytes());
+		byte myByteToFile = getByte("Input number in byte format: ");
+
+		fileOutputStream.write(myByteToFile);
 
 		fileOutputStream.close();
 	}
