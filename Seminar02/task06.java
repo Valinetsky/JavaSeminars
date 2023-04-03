@@ -48,7 +48,8 @@ public class task06 {
 		File file = new File("C:\\Users\\Roman\\Desktop\\GB\\JAVA\\Seminar02\\text.txt");
 		FileOutputStream fileOutputStream = new FileOutputStream(file);
 
-		String greetings = "Привет! Добро пожаловать на JavaRush - лучший сайт для тех, кто хочет стать программистом!";
+		// String greetings = "Привет! Добро пожаловать на JavaRush - лучший сайт для
+		// тех, кто хочет стать программистом!";
 
 		byte myByteToFile = getByte("Input number in byte format: ");
 
