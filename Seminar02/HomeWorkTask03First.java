@@ -12,7 +12,6 @@
 
  */
 
-
 package Seminar02;
 
 import java.io.FileOutputStream;
@@ -24,7 +23,7 @@ import java.util.Scanner;
 import java.util.logging.*;
 
 public class HomeWorkTask03First {
-    private static Scanner scan = new Scanner(System.in);
+	private static Scanner scan = new Scanner(System.in);
 
 	static byte getByte(String prompt) {
 		boolean flag = true;
@@ -43,7 +42,6 @@ public class HomeWorkTask03First {
 		return i;
 	}
 
-
 	public static void main(String[] args) throws IOException {
 
 		Logger logger = Logger.getLogger(HomeWorkTask03First.class.getName());
@@ -56,7 +54,7 @@ public class HomeWorkTask03First {
 		// ch.setFormatter(xml);
 		logger.log(Level.WARNING, "Test log");
 		logger.info("Test log");
-		
+
 		// Забавный бесконечный цикл для понимания байтового формата и переполнения
 		// for (byte i = 1; i <= 200; i++) {
 		// System.out.println(i);
@@ -75,5 +73,4 @@ public class HomeWorkTask03First {
 
 		fileOutputStream.close();
 	}
-
 }
