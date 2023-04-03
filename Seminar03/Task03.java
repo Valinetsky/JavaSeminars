@@ -1,3 +1,8 @@
+/*
+ * Sort array
+ */
+
+
 package Seminar03;
 
 import java.util.ArrayList;
@@ -6,39 +11,38 @@ import java.util.List;
 
 public class Task03 {
 	public static void main(String[] args) {
-		List<Integer> listNumber = new ArrayList<>(Arrays.asList(1, 9, 2, 6, 4, 3, 5, 7, 8, 0));
+		List<Integer> list = Arrays.asList(75, 99, 34, -9, 34, 58, 864);
+        System.out.println(sortByCollections(list));
+
 	}
 
-	public List<Integer> sortByCollections(List<Integer> list) {
+	public static List<Integer> sortByCollections(List<Integer> list) {
 
-		return new ArrayList<>();
-	}
+		if(list.size() <= 1) {    // базовый случай выхода из рекурсии, когда массив имеет 0 или 1 элемент
+            return list;
+        }
+        else  {
+            int delimiter = list.get(0); // число, относительно которого разделяем массивы
+            List<Integer> left = new ArrayList<>(); // левая сторона - числа меньше delimiter
+            List<Integer> right = new ArrayList<>(); // правая сторона - числа больше delimiter
+            for (int i = 1; i < list.size(); i++) {
+                if (list.get(i) < delimiter) {
+                    left.add(list.get(i));
+                } else {
+                    right.add(list.get(i));
+                }
+            }
+            return merger(sortByCollections(left), delimiter, sortByCollections(right)); // вызываем sort у новых массивов
+        }
+    }
 
-	public static void mergeSort(int[] source, int left, int right) {
-		// Выберем разделитель, т.е. разделим пополам входной массив
-		int delimiter = left + ((right - left) / 2) + 1;
-		// Выполним рекурсивно данную функцию для двух половинок (если сможем разбить(
-		if (delimiter > 0 && right > (left + 1)) {
-			mergeSort(source, left, delimiter - 1);
-			mergeSort(source, delimiter, right);
-		}
-		// Создаём временный массив с нужным размером
-		int[] buffer = new int[right - left + 1];
-		// Начиная от указанной левой границы идём по каждому элементу
-		int cursor = left;
-		for (int i = 0; i < buffer.length; i++) {
-			// Мы используем delimeter чтобы указывать на элемент из правой части
-			// Если delimeter > right, значит в правой части не осталось недобавленных
-			// элементов
-			if (delimiter > right || source[cursor] > source[delimiter]) {
-				buffer[i] = source[cursor];
-				cursor++;
-			} else {
-				buffer[i] = source[delimiter];
-				delimiter++;
-			}
-		}
-		System.arraycopy(buffer, 0, source, left, buffer.length);
-	}
-
+    //соединяем левую сторону + delimiter + правую сторону
+    private static List<Integer> merger(List<Integer> left, int del, List<Integer> right) {
+        left.add(del);
+        left.addAll(right);
+        return left;
+    }
 }
+		
+		
+		
