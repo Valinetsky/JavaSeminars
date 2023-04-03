@@ -11,6 +11,8 @@
 // разницу в результате
 
  */
+
+
 package Seminar02;
 
 import java.io.FileOutputStream;
@@ -21,9 +23,8 @@ import java.util.Scanner;
 
 import java.util.logging.*;
 
-public class task06 {
-
-	private static Scanner scan = new Scanner(System.in);
+public class HomeWorkTask03First {
+    private static Scanner scan = new Scanner(System.in);
 
 	static byte getByte(String prompt) {
 		boolean flag = true;
@@ -42,9 +43,10 @@ public class task06 {
 		return i;
 	}
 
+
 	public static void main(String[] args) throws IOException {
 
-		Logger logger = Logger.getLogger(task06.class.getName());
+		Logger logger = Logger.getLogger(HomeWorkTask03First.class.getName());
 		logger.setLevel(Level.INFO);
 		ConsoleHandler ch = new ConsoleHandler();
 		logger.addHandler(ch);
@@ -52,9 +54,9 @@ public class task06 {
 		// XMLFormatter xml = new XMLFormatter();
 		ch.setFormatter(sFormat);
 		// ch.setFormatter(xml);
-		logger.log(Level.WARNING, "Тестовое логирование");
-		logger.info("Тестовое логирование");
-
+		logger.log(Level.WARNING, "Test log");
+		logger.info("Test log");
+		
 		// Забавный бесконечный цикл для понимания байтового формата и переполнения
 		// for (byte i = 1; i <= 200; i++) {
 		// System.out.println(i);
@@ -73,4 +75,5 @@ public class task06 {
 
 		fileOutputStream.close();
 	}
+
 }
