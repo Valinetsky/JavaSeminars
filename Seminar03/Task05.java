@@ -49,10 +49,17 @@ public class Task05 {
 		List<Integer> list = new ArrayList<>(Arrays.asList(75, 99, 34, -9, 34, 58, 864));
 
 		System.out.println(list);
+
+		System.out.print("Min: ");
 		System.out.println(getMin(list));
+
+		System.out.print("Max: ");
 		System.out.println(getMax(list));
+
+		System.out.print("Average: ");
 		System.out.println(getAverage(list));
 
+		System.out.print("removeEvenValue array: ");
 		System.out.println(removeEvenValue(list));
 	}
 
