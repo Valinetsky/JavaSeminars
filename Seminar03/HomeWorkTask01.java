@@ -1,40 +1,78 @@
+/*
+Реализовать алгоритм сортировки слиянием и выборкой.
+(Самое эффективное , это изучить эти сортировки на Питоне, 
+и постараться написать их на java)
+*/
+
 package Seminar03;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class HomeWorkTask01 {
 
-	public static void mergeSort(int[] source, int left, int right) {
-		// Выберем разделитель, т.е. разделим пополам входной массив
-		int delimiter = left + ((right - left) / 2) + 1;
-		// Выполним рекурсивно данную функцию для двух половинок (если сможем разбить(
-		if (delimiter > 0 && right > (left + 1)) {
-			mergeSort(source, left, delimiter - 1);
-			mergeSort(source, delimiter, right);
-		}
-		// Создаём временный массив с нужным размером
-		int[] buffer = new int[right - left + 1];
-		// Начиная от указанной левой границы идём по каждому элементу
-		int cursor = left;
-		for (int i = 0; i < buffer.length; i++) {
-			// Мы используем delimeter чтобы указывать на элемент из правой части
-			// Если delimeter > right, значит в правой части не осталось недобавленных
-			// элементов
-			if (delimiter > right || source[cursor] > source[delimiter]) {
-				buffer[i] = source[cursor];
-				cursor++;
-			} else {
-				buffer[i] = source[delimiter];
-				delimiter++;
-			}
-		}
-		System.arraycopy(buffer, 0, source, left, buffer.length);
+	public static void main(String[] args) {
+		List<Integer> list = Arrays.asList(75, 99, 34, -9, 34, 58, 864);
+		List<Integer> listNegative = Arrays.asList(864, 58, 34, -9, 34, 99, 75);
+
+		System.out.println("MERGE SORT");
+		System.out.println(list);
+		System.out.println(mergeSort(list));
+
+		System.out.println("SELECTION SORT");
+		System.out.println(listNegative);
+		System.out.println(selectionSort(listNegative));
 	}
 
-	public static void main(String[] args) {
-		int[] array = { 10, 28, 0, 3, 4, 17, 1 };
-		System.out.println(Arrays.toString(array));
+	// ============================================================================================
+	// MERGE SORT
+	public static List<Integer> mergeSort(List<Integer> list) {
+		// базовый случай выхода из рекурсии, когда массив имеет 0 или 1 элемент
+		if (list.size() <= 1) {
+			return list;
+		} else {
+			// число, относительно которого разделяем массивы
+			int delimiter = list.get(0);
+			// левая сторона - числа меньше delimiter
+			List<Integer> left = new ArrayList<>();
+			// правая сторона - числа больше delimiter
+			List<Integer> right = new ArrayList<>();
+			for (int i = 1; i < list.size(); i++) {
+				if (list.get(i) < delimiter) {
+					left.add(list.get(i));
+				} else {
+					right.add(list.get(i));
+				}
+			}
+			// вызываем sort у новых массивов
+			return merger(mergeSort(left), delimiter, mergeSort(right));
+		}
+	}
 
-		mergeSort(array, 0, array.length - 1);
+	// соединяем левую сторону + delimiter + правую сторону
+	private static List<Integer> merger(List<Integer> left, int del, List<Integer> right) {
+		left.add(del);
+		left.addAll(right);
+		return left;
+	}
+
+	// ===========================================================================================
+	// SELECTION SORT
+	public static List<Integer> selectionSort(List<Integer> list) {
+		for (int i = 0; i < list.size(); i++) {
+			// min - индекс наименьшего элемента >= i
+			int min = i;
+			for (int j = i + 1; j < list.size(); j++) {
+				if (list.get(j) < list.get(min)) {
+					min = j;
+				}
+			}
+			// меняем i-й и min элементы
+			int swap = list.get(i);
+			list.set(i, list.get(min));
+			list.set(min, swap);
+		}
+		return list;
 	}
 }
