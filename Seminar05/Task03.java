@@ -28,10 +28,10 @@ public class Task03 {
 		for(Integer number: mySet){
 			int localCount = Collections.frequency(myArr, number);
 
-		// System.out.println(number + " " + localCount);
+			// System.out.println(number + " " + localCount);
 
-		// Формула количесва пар из количества элементов
-		result = result + localCount * (localCount - 1) / 2; 
+			// Формула количесва пар из количества элементов
+			result = result + localCount * (localCount - 1) / 2; 
 		}
 
 
