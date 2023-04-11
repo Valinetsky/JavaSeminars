@@ -37,6 +37,9 @@ public class HomeWorkTask01 {
 		addNumber("Saveliev", 634561111, bookPhone);
 		addNumber("Saveliev", 6345646, bookPhone);
 		addNumber("Saveliev", 02546, bookPhone);
+		addNumber("Petrov", 5566, bookPhone);
+		addNumber("Ivanov", 77777777, bookPhone);
+		addNumber("Sokolov", 88, bookPhone);
 		printBook(bookPhone);
 	}
 }

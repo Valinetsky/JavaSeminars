@@ -1,0 +1,176 @@
+public class Task0 {
+
+    public static void main(String[] args) {
+
+    }
+
+    // Создайте HashSet, заполните его следующими числами: {1, 2, 3, 2, 4, 5, 6, 3}.
+    // Распечатайте содержимое данного множества.
+    public void initHashSet(){
+
+    }
+
+    // Создайте LinkedHashSet, заполните его следующими числами: {1, 2, 3, 2, 4, 5, 6, 3}.
+    // Распечатайте содержимое данного множества.
+    public void initLinkedHashSet(){
+
+    }
+
+    // Создайте TreeSet, заполните его следующими числами: {1, 2, 3, 2, 4, 5, 6, 3}.
+    // Распечатайте содержимое данного множества.
+    public void initTreeSet(){
+
+    }
+}
+
+public class Task1 {
+
+    public static void main(String[] args) {
+
+    }
+
+    // Напишите метод, который заполнит массив из 1000 элементов случайными цифрами от 0 до 24.
+    public int[] initArray(){
+
+        return new int[]{};
+    }
+
+    // Создайте метод, в который передайте заполненный выше массив и с помощью Set вычислите процент уникальных
+    // значений в данном массиве и верните его в виде числа с плавающей запятой.
+    // Для вычисления процента используйте формулу:
+    // процент уникальных чисел = количество уникальных чисел * 100 / общее количество чисел в массиве.
+    public double getPercentUniqueValues(int[] array){
+
+        return 0.0d;
+    }
+}
+
+public class Task2 {
+
+    // Продумайте структуру класса Бульдожка. Какие поля и методы будут актуальны для приложения, которое является
+    // а) информационной системой ухода за ней
+    // б) архивом выставки бульдожков
+    // в) информационной системой Театра бульдожек имени Дарахвелидзе
+    public static void main(String[] args) {
+
+    }
+}
+
+
+
+https://metanit.com/java/tutorial/3.1.php
+
+import java.util.ArrayList;
+
+public class Buldojka {
+
+    public int age;
+    public int mass;
+    public String type;
+    public String name;
+    public String master;
+    public ArrayList<String> vystavki = new ArrayList<>();
+
+
+
+    public  Buldojka(int age, int mass, String type, String name, String master)
+    {
+        this.age = age;
+        this.mass = mass;
+        this.type = type;
+        this.name = name;
+        this.master = master;
+    }
+
+    void gladit()
+    {
+        System.out.println("RRRR");
+    }
+
+    String getName()
+    {
+        return name;
+    }
+
+    void newVystavka(String name)
+    {
+        vystavki.add(name);
+    }
+
+    void getVystavka()
+    {
+        System.out.println("Все выставки бульдожки:");
+        for (int i = 0; i < vystavki.size(); i++)
+        {
+            System.out.println(vystavki.get(i));
+        }
+    }
+
+    void getAll()
+    {
+        System.out.println("Кличка - " + name);
+        System.out.println("Вес - " + mass);
+        System.out.println("Порода - " + type);
+        System.out.println("Возраст - " + age);
+        System.out.println("Владелец - " + master);
+
+        getVystavka();
+    }
+
+}
+public class Task2 {
+
+    // Продумайте структуру класса Бульдожка. Какие поля и методы будут актуальны для приложения, которое является
+    // а) информационной системой ухода за ней
+    // б) архивом выставки бульдожков
+    // в) информационной системой Театра бульдожек имени Дарахвелидзе
+    public static void main(String[] args) {
+        Buldojka Sobaka = new Buldojka(5, 30, "Buldog", "Gav", "Anton");
+        Buldojka Sobaka2 = new Buldojka(5, 30, "Чихуа-хуа", "Gav2", "Dmitriy");
+
+
+        Sobaka.gladit();
+
+        System.out.println(Sobaka.getName());
+
+        Sobaka2.newVystavka("КОнкурс красоты");
+        Sobaka2.newVystavka("Мисс вселенная");
+
+
+        Sobaka2.getVystavka();
+
+        Sobaka2.getAll();
+
+    }
+}
+
+
+
+
+public class Homework {
+
+    // 1) Подумать над структурой класса Ноутбук для магазина техники - выделить поля и методы. Реализовать в java.
+    // 2) Создать коллекцию ноутбуков.
+    // 3) Написать мапу, которая будет содержать критерий (или критерии) фильтрации и выведет
+    //      ноутбуки, отвечающие фильтру.
+    //      Пример: ОЗУ - Значение, Объем ЖД - Значение, Операционная система - Значение, Цвет - Значение
+    // 4) Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
+    public static void main(String[] args) {
+
+    }
+
+    public List<Notebook> initListNotebooks(){
+
+        return null;
+    }
+
+    public List<Notebook> filter(Map<String, String> params, List<Notebook> notebooks){
+
+        return null;
+    }
+
+}
+
+
+
+https://stepik.org/lesson/439018/step/2?unit=429115
