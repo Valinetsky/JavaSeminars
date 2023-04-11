@@ -42,7 +42,6 @@ public class Task02 {
 				System.out.println("YES");
 			}
 		}
-
 		System.out.println(mySet);
 	}
 
