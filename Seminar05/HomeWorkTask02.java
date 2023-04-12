@@ -44,23 +44,37 @@
 
 package Seminar05;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 
 public class HomeWorkTask02 {
 
+    // Получаем первое слово из строки (Имя) 
     private static String getFirstWord(String sentence){
-        String delimiter = " "; //Blank space is delimiter here
+        String delimiter = " ";
         String[] words = sentence.split(delimiter);
         return words[0];
     }
+
+
+    // Сортируем карту по значениям в порядке убывания
+    public static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
+        Comparator<K> valueComparator =  new Comparator<K>() {
+            public int compare(K k1, K k2) {
+                int compare = map.get(k2).compareTo(map.get(k1));
+                if (compare == 0) return 1;
+                else return compare;
+            }
+        };
+        Map<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
+        sortedByValues.putAll(map);
+        return sortedByValues;
+    }
+
+
 
     public static void main(String[] args) {
         String[] probe = {            
@@ -82,12 +96,12 @@ public class HomeWorkTask02 {
                     "Иван Мечников",
                     "Петр Петин",
                     "Иван Ежов",
+                    
     };
-
 
 		List<String> lst = Arrays.asList(probe);
 		
-		TreeMap<String, Integer> myMap = new TreeMap<>(Comparator.);
+		TreeMap<String, Integer> myMap = new TreeMap<>();
 		for (String myStr : lst) {
             String localName = getFirstWord(myStr);
 			if (myMap.containsKey(localName)) {
@@ -97,11 +111,11 @@ public class HomeWorkTask02 {
 			}
 		}
 
-        // TreeMap<String, Integer> mySortedMap = TreeMap<>(myMap);
-
+        System.out.println();
+        System.out.println("Карта - имя : количество вхождений в список");
 		System.out.println(myMap);
-        System.out.println(myMap.sort);
-
+        System.out.println();
+        System.out.println("Та же карта, отсортированная по количеству вхождений в порядке убывания");
+        System.out.println(sortByValues(myMap));
     }
-    
 }
